@@ -7,7 +7,7 @@ const io = require('socket.io')(server, { cors: { origin: '*' } })
 app.use(express.static('public'))
 app.use('*', express.static('public/error.html'))
 
-server.listen(proccess.env.PORT || 3000)
+server.listen(process.env.PORT || 3000)
 
 io.on('connection', (socket) => {
     socket.emit('connected', socket.id)
