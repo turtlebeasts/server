@@ -54,6 +54,16 @@
             behavior: "smooth"
         })
     })
+    const typing = document.getElementById('message')
+    typing.addEventListener('keypress', () => {
+        socket.emit('typing', 'typing...')
+    })
+    socket.on('userTyping', data => {
+        document.getElementById('typing').innerHTML = data
+        setTimeout(() => {
+            document.getElementById('typing').innerHTML = ''
+        }, 1000)
+    })
 </script>
 
 </html>
