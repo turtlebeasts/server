@@ -19,4 +19,7 @@ io.on('connection', (socket) => {
     socket.on('typing', data => {
         socket.broadcast.emit('userTyping', data)
     })
+    socket.on('disconnect', () => {
+        socket.broadcast.emit('disconnected', sockid)
+    })
 })
