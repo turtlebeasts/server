@@ -1,0 +1,113 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background: linear-gradient(0deg, rgba(255, 255, 255, 1) 0%, rgba(60, 60, 60, 1) 41%, rgb(185, 185, 185) 100%);
+    color: white;
+    height: 100vh;
+}
+
+nav {
+    background-color: white;
+    color: rgb(40, 60, 97);
+    font-weight: 700;
+    text-align: center;
+    height: 6vh;
+}
+
+nav.top {
+    border-radius: 15px 15px 0 0;
+}
+
+nav.bottom {
+    border-radius: 0 0 15px 15px;
+}
+
+nav>p {
+    padding-top: 3vh;
+}
+
+#display {
+    margin: auto;
+    width: 98vw;
+    background-color: white;
+    height: 60vh;
+    overflow-y: scroll;
+    box-shadow: inset 0px 10px 27px -6px rgba(0, 0, 0, 0.75);
+}
+
+::-webkit-scrollbar {
+    background-color: white;
+    width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgb(138, 138, 138);
+    border-radius: 15px;
+    box-shadow: 0px 0px 24px 0px rgba(0, 0, 0, 0.75);
+}
+
+hr {
+    margin: auto;
+    width: 90%;
+    background-color: red;
+}
+
+#message {
+    margin-left: 2%;
+    width: 75vw;
+    height: 3rem;
+    border: none;
+    outline: none;
+    border-radius: 15px;
+    text-align: center;
+    margin-top: 2%;
+}
+
+button {
+    outline: none;
+    border: none;
+    border-radius: 15px;
+    height: 3rem;
+    width: 20vw;
+}
+
+.me {
+    float: right;
+    background-color: rgb(216, 0, 0);
+    text-align: right;
+    padding: 1.5rem;
+    margin-right: 5%;
+    clear: both;
+    box-shadow: 0px 10px 27px -6px rgba(0, 0, 0, 0.75);
+}
+
+.them {
+    float: left;
+    background-color: rgb(138, 138, 138);
+    text-align: left;
+    padding: 1.5rem;
+    margin-left: 5%;
+    clear: both;
+    box-shadow: 0px 10px 27px -6px rgba(0, 0, 0, 0.75);
+}
+
+.texts {
+    margin-top: 2%;
+    border-radius: 15px;
+    max-width: 50vw;
+}
+
+bottomNav {
+    background-color: white;
+    height: 6vh;
+    width: 100vw;
+    border-radius: 15px 15px 0 0;
+}
+
+.mid {
+    background-color: white;
+}

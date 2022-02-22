@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Hello world</title>
+</head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+
+<body>
+    <nav class="top">
+        <p>YOUR ID: <span id="id"></span></p>
+        <hr>
+    </nav>
+    <div class="mid">
+        <div id="display"></div>
+    </div>
+    <nav class="bottom"></nav>
+    <input type="text" id="message" placeholder="Enter text here..." onchange="send()">
+    <button>Send</button>
+</body>
+
+<script src="http://192.168.43.95:3000/socket.io/socket.io.js"></script>
+
+<script>
+    const socket = io('http://192.168.43.95:3000');
+    var id
+    const message = document.getElementById('display')
+    socket.on('connected', data => {
+        id = data
+        document.getElementById('id').innerHTML = id
+    })
+
+    function send() {
+        const mssg = document.getElementById('message').value
+        socket.emit('message', mssg)
+        document.getElementById('message').value = ''
+    }
+    socket.on('recieve', data => {
+        const name = data.sockid.slice(0, 3)
+        let lastmessageClass
+        if (data.sockid == id) {
+            lastmessageClass = 'me'
+            message.innerHTML += "<div class='me texts'><h4>You</h4><p>" + data.data + "</p></div>"
+        } else {
+            lastmessageClass = 'them'
+            message.innerHTML += "<div class='them texts'><h4>" + name + "</h4><p>" + data.data + "</p></div>"
+        }
+        let lastmessageIndex = document.getElementsByClassName(lastmessageClass).length - 1
+        let lastPosition = document.getElementsByClassName(lastmessageClass)[lastmessageIndex]
+        let scrollTo = lastPosition.offsetTop
+        message.scroll({
+            top: scrollTo,
+            behavior: "smooth"
+        })
+    })
+</script>
+
+</html>
