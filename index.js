@@ -7,10 +7,11 @@ const io = require('socket.io')(server, { cors: { origin: '*' } })
 app.use(express.static('public'))
 app.use('*', express.static('public/error.html'))
 
-server.listen(process.env.PORT || 3000)
+server.listen(3000)
 
 io.on('connection', (socket) => {
     socket.emit('connected', socket.id)
+    socket.broadcast.emit('userJoined', 'Someone joined the chat')
     const sockid = socket.id
     socket.on('message', data => {
         io.emit('recieve', { data, sockid })
