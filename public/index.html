@@ -20,10 +20,10 @@
     <button>Send</button>
 </body>
 
-<script src="http://localhost:3000/socket.io/socket.io.js"></script>
+<script src="../socket.io/socket.io.js"></script>
 
 <script>
-    const socket = io('http://localhost:3000');
+    const socket = io('https://cheezychat.herokuapp.com');
     var id
     const message = document.getElementById('display')
     socket.on('connected', data => {
