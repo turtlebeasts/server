@@ -76,6 +76,16 @@
             behavior: "smooth"
         })
     })
+    socket.on('disconnected', data => {
+        message.innerHTML += "<p class='join'>User " + data + " left</p>"
+        let lastmessageIndex = document.getElementsByClassName('join').length - 1
+        let lastPosition = document.getElementsByClassName('join')[lastmessageIndex]
+        let scrollTo = lastPosition.offsetTop
+        message.scroll({
+            top: scrollTo,
+            behavior: "smooth"
+        })
+    })
 </script>
 
 </html>
