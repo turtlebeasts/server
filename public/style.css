@@ -111,3 +111,10 @@ bottomNav {
 .mid {
     background-color: white;
 }
+
+.join {
+    text-align: center;
+    clear: both;
+    background: rgb(255, 255, 255);
+    background: linear-gradient(67deg, rgba(255, 255, 255, 1) 0%, rgba(255, 161, 161, 1) 30%, rgba(255, 161, 161, 1) 70%, rgba(255, 255, 255, 1) 100%);
+}
