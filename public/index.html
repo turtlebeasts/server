@@ -16,7 +16,8 @@
         <div id="display"></div>
     </div>
     <nav class="bottom">
-        <p id="typing"></p></nav>
+        <p id="typing"></p>
+    </nav>
     <input type="text" id="message" placeholder="Enter text here..." onchange="send()">
     <button>Send</button>
 </body>
@@ -64,6 +65,16 @@
         setTimeout(() => {
             document.getElementById('typing').innerHTML = ''
         }, 1000)
+    })
+    socket.on('userJoined', data => {
+        message.innerHTML += "<p class='join'>" + data + "</p>"
+        let lastmessageIndex = document.getElementsByClassName('join').length - 1
+        let lastPosition = document.getElementsByClassName('join')[lastmessageIndex]
+        let scrollTo = lastPosition.offsetTop
+        message.scroll({
+            top: scrollTo,
+            behavior: "smooth"
+        })
     })
 </script>
 
